@@ -1024,8 +1024,7 @@
   }
   #footer .left-section .logo img {
     display: block;
-    height: 100%;
-    width: auto;
+    width: 100%;
   }
   #footer .left-section p {
     opacity: 0.9;
