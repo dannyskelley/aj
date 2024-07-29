@@ -1,9 +1,8 @@
 ---
-title: 'Harrys Painting and Residential Worx'
-description: 'Harrys Painting and Residential Worx'
+title: 'Junky Rabbit Labor | Detroit General Labor $35/hr'
+description: 'Junky Rabbit Labor | Detroit General Labor $35/hr'
 preloadImg: '/assets/images/landing.jpg'
 permalink: '/'
-tags: 'sitemap' # Sitemap will use all pages in content/, due to content.json. As index.html is not included in content/ we need to manually add the sitemap tag to this page (only).
 eleventyNavigation:
   key: Home
   order: 100
@@ -12,8 +11,8 @@ eleventyNavigation:
 {% extends "layouts/base.html" %}
 
 {% block head %}
-    <link rel="stylesheet" href="/assets/css/local.css"/>
-    <link rel="stylesheet" href="/assets/css/critical.css"/>
+    <link rel="stylesheet" href="/assets/css/local.css" />
+    <link rel="stylesheet" href="/assets/css/critical.css" />
 
   
     <!-- Script for Netlify Identity -->
@@ -33,16 +32,16 @@ eleventyNavigation:
                 });
         }
     </script>
+
 {% endblock %}
 
 {% block body %}
 
+    
 {% include 'components/hero.html' %}
-
-
-
 {% include 'components/2.html' %}
 
 
 
-{% endblock %}
+
+    {% endblock %}

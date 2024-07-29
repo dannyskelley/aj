@@ -4,30 +4,32 @@
 <---        Core Styles         -->
 <--- -------------------------- -*/
 
+* {transition: all ease .3s;}
+
 /* CodeStitch Root and Helpers */
-@media only screen and (min-width: 0rem) {
-a {text-decoration: none;}
-* {scroll-behavior: smooth;}
-
-
+@media only screen and (min-width: 0em) {
     // Website colors
     :root {
-        --primary: white;
-        --primaryLight: #ffd675;
-        --secondary: #001f3f;
+        --primary: #495ACE;
+        --primaryLight: green;
+        --secondary: #495ACE;
         --secondaryLight: #001f3f;
         --headerColor: #1a1a1a;
-        --bodyTextColor: white;
+        --bodyTextColor: #4e4b66;
         --bodyTextColorWhite: #fafbfc;
+
+        --nav:black ;
+        --active:#495ACE;
+
 
         /* 13px - 16px */
         --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
         /* 31px - 49px */
         --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
-        --bodyFontSize: 1.2rem;
+        --bodyFontSize: 1.1rem;
 
         /* 60px - 100px top and bottom */
-        --sectionPadding: clamp(9.75rem, 7.82vw, 6.25rem) 2rem;
+        --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 2rem;
     }
 
     // Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
@@ -49,9 +51,12 @@ a {text-decoration: none;}
         max-width: 43.75rem;
         font-size: var(--headerFontSize);
         line-height: 1.2em;
-        font-weight: 900;
-        color: #fff;
+        font-weight: 600;
+        color: var(--headerColor);
         text-align: inherit;
+        font-family: "Bakbak One", Arial, sans-serif;
+        text-transform: uppercase;
+        
     }
 
     .cs-text {
@@ -69,19 +74,18 @@ a {text-decoration: none;}
         z-index: 1;
         position: relative;
         display: inline-block;
-        background-color:black;
-        border:2px solid white;
+        background-color: var(--primary);
         width: auto;
         padding: 0 calc(30 / 16 * 1rem);
         text-decoration: none;
-        text-transform: uppercase;
+    border-radius: 999px;
         font-size: calc(16 / 16 * 1rem);
         line-height: calc(50 / 16 * 1em);
         font-weight: bold;
-    
-
         // Transition Properties
-        color: #fff;
+        color: white;
+        transition: color 0.3s;
+        transition-delay: 0.1s;
         text-align: center;
 
         &:hover {
@@ -89,7 +93,6 @@ a {text-decoration: none;}
             &:before {
                 width: 100%;
                 opacity: 1;
-                transition:all ease  .2s;
             }
         }
 
@@ -99,46 +102,37 @@ a {text-decoration: none;}
             top: 0;
             left: 0;
             content: "";
-            border-radius: 999px;
-            opacity: 0;
+            opacity: 1;
             display: block;
             background-color: #fff;
-            border:10px solid black;
             height: 100%;
+            border:2px solid black;
+            opacity: 0;
+            border-radius: 999px;
 
             //Transition properties
             width: 0;
             transition: width 0.3s;
         }
     }
-
-    .cs-hide-on-mobile {
-        display: none;
-    }
-}
-
-/* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-    .cs-hide-on-mobile {
-        display: block;
-    }
-
-    .cs-hide-on-desktop {
-        display: none;
-    }
 }
 
 /* Fonts and general styles */
-@media only screen and (min-width: 0rem) {
+@media only screen and (min-width: 0em) {
+
     body,
     html {
         margin: 0;
         overflow-x: hidden;
         padding: 0;
-        font-family: "Poppins", Arial, sans-serif;
+        font-family: "Roboto", Arial, sans-serif;
         font-size: 100%;
         color: var(--bodyTextColor);
+        scroll-behavior: smooth;
     }
+
+
+
 
     *,
     *:before,
@@ -198,32 +192,51 @@ a {text-decoration: none;}
     }
     // Grab your fonts to locally host from https://google-webfonts-helper.herokuapp.com/fonts
 
-    /* Poppins-regular - latin */
     @font-face {
         font-style: normal;
-        font-family: "Poppins";
+        font-family: "Bakbak One";
         font-weight: 100;
         font-display: swap;
-        src: local(""), url("/assets/fonts/poppins-v21-latin-regular.woff2") format("woff2"),
-            /* Chrome 26+, Opera 23+, Firefox 39+ */ url("/assets/fonts/Poppins-v21-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        src: local(""),
+            url("/assets/fonts/bakbak-one-v8-latin-regular.woff2") format("woff2"),
+            /* Chrome 26+, Opera 23+, Firefox 39+ */
+                url("/assets/fonts/bakbak-one-v8-latin-regular.woff2")
+                format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
-    /* Poppins-700 - latin */
+
+    /* roboto-regular - latin */
     @font-face {
         font-style: normal;
-        font-family: "Poppins";
+        font-family: "Roboto";
+        font-weight: 400;
+        font-display: swap;
+        src: local(""),
+            url("/assets/fonts/roboto-v29-latin-regular.woff2") format("woff2"),
+            /* Chrome 26+, Opera 23+, Firefox 39+ */
+                url("/assets/fonts/roboto-v29-latin-regular.woff")
+                format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+    /* roboto-700 - latin */
+    @font-face {
+        font-style: normal;
+        font-family: "Roboto";
         font-weight: 700;
         font-display: swap;
-        src: local(""), url("/assets/fonts/poppins-v21-latin-900.woff2") format("woff2"),
-            /* Chrome 26+, Opera 23+, Firefox 39+ */ url("/assets/fonts/Poppins-v21-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        src: local(""),
+            url("/assets/fonts/roboto-v29-latin-700.woff2") format("woff2"),
+            /* Chrome 26+, Opera 23+, Firefox 39+ */
+                url("/assets/fonts/roboto-v29-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
-    /* Poppins-900 - latin */
+    /* roboto-900 - latin */
     @font-face {
         font-style: normal;
-        font-family: "Poppins";
+        font-family: "Roboto";
         font-weight: 900;
         font-display: swap;
-        src: local(""), url("/assets/fonts/poppins-v21-latin-900.woff2") format("woff2"),
-            /* Chrome 26+, Opera 23+, Firefox 39+ */ url("/assets/fonts/Poppins-v21-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        src: local(""),
+            url("/assets/fonts/roboto-v29-latin-900.woff2") format("woff2"),
+            /* Chrome 26+, Opera 23+, Firefox 39+ */
+                url("/assets/fonts/roboto-v29-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 }
 
@@ -336,6 +349,7 @@ a {text-decoration: none;}
     }
 
     #cs-navigation {
+ 
 
         .cs-container {
             display: flex;
@@ -449,7 +463,7 @@ a {text-decoration: none;}
             right: 0;
             opacity: 0;
             transform: scaleX(0);
-            background-color: black;
+            background-color: #fff;
             height: 100vh;
             overflow: hidden;
             transition: transform 0.4s, opacity 0.3s;
@@ -468,7 +482,8 @@ a {text-decoration: none;}
             width: auto;
             overflow: scroll;
             /* 28px - 40px */
-            padding: calc(48 / 16 * 1rem) clamp(1.75rem, 3vw, 2.5rem) calc(32 / 16 * 1rem) calc(70 / 16 * 1rem);
+            padding: calc(48 / 16 * 1rem) clamp(1.75rem, 3vw, 2.5rem)
+                calc(32 / 16 * 1rem) calc(70 / 16 * 1rem);
             gap: calc(20 / 16 * 1rem);
         }
 
@@ -480,7 +495,7 @@ a {text-decoration: none;}
             width: 100%;
             list-style: none;
             transition: transform 0.6s, opacity 0.9s;
-            
+            text-align: right;
 
             &:nth-of-type(1) {
                 transition-delay: 0.05s;
@@ -554,7 +569,6 @@ a {text-decoration: none;}
             content: "";
             opacity: 0;
             display: block;
-            background: rgba(0, 0, 0, 0.6);
             height: 100vh;
             width: 0%;
             transition: width 0.5s, opacity 0.3s;
@@ -563,6 +577,7 @@ a {text-decoration: none;}
         }
 
         &.cs-active {
+
             .cs-ul-wrapper {
                 opacity: 1;
                 transform: scaleX(1);
@@ -622,9 +637,7 @@ a {text-decoration: none;}
                 position: relative;
                 transition: opacity 0.3s;
             }
-
-            &.cs-active,
-            &:hover {
+            &.cs-active {
                 .cs-drop-ul {
                     visibility: visible;
                     opacity: 1;
@@ -664,7 +677,8 @@ a {text-decoration: none;}
             box-sizing: border-box;
             overflow: hidden;
             padding: 0 calc(24 / 16 * 1rem) 0 calc(24 / 16 * 1rem);
-            transition: padding 0.3s, margin 0.3s, height 0.3s, opacity 0.3s, transform 0.3s, visibility 0.3s;
+            transition: padding 0.3s, margin 0.3s, height 0.3s, opacity 0.3s,
+                transform 0.3s, visibility 0.3s;
             gap: calc(12 / 16 * 1rem);
             transform-origin: top right;
         }
@@ -689,8 +703,6 @@ a {text-decoration: none;}
     #cs-navigation {
         .cs-dropdown {
             position: relative;
-
-            &.cs-active,
             &:hover {
                 cursor: pointer;
                 .cs-drop-ul {
@@ -842,15 +854,7 @@ a {text-decoration: none;}
 /* Small Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
     #cs-navigation {
-        z-index: 10000;
        
-        width: 100%;
-        /* prevents padding from affecting height and width */
-        box-sizing: border-box;
-        padding: 0 calc(16 / 16 * 1rem);
-        /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-        font-family: "Poppins", "Arial", sans-serif;
-     
 
         .cs-container {
             display: flex;
@@ -875,7 +879,7 @@ a {text-decoration: none;}
             margin: 0 auto 0 0;
             height: calc(65 / 16 * 1rem);
             max-width: calc(350 / 16 * 1rem);
-            width: 18.4%;
+            width: 15.4%;
             padding: 0;
 
             img {
@@ -921,14 +925,14 @@ a {text-decoration: none;}
 
             &:before {
                 position: absolute;
-                bottom: calc(0 / 16 * 1rem);
+                bottom: -20px;
                 left: 0;
                 /* active state underline */
                 content: "";
                 opacity: 1;
                 display: block;
-                background: var(--primary);
-                height: 2px;
+                background: var(--active);
+                height: 5px;
                 width: 0%;
                 transition: width 0.3s;
             }
@@ -971,7 +975,7 @@ a {text-decoration: none;}
 <--- -------------------------- -*/
 
 /* Mobile */
-@media only screen and (min-width: 0rem) {
+@media only screen and (min-width: 0em) {
     #int-hero {
         z-index: 1;
         position: relative;
@@ -1038,7 +1042,7 @@ a {text-decoration: none;}
 }
 
 /* Tablet */
-@media only screen and (min-width: 48rem) {
+@media only screen and (min-width: 48em) {
     #int-hero {
         font-size: 100%;
 
@@ -1049,7 +1053,7 @@ a {text-decoration: none;}
 }
 
 /* Small Desktop */
-@media only screen and (min-width: 64rem) {
+@media only screen and (min-width: 64em) {
     #int-hero {
         background-attachment: fixed;
         min-height: calc(300 / 16 * 1rem);
@@ -1065,7 +1069,7 @@ a {text-decoration: none;}
 <--- -------------------------- -*/
 
 /* Mobile */
-@media only screen and (min-width: 0rem) {
+@media only screen and (min-width: 0em) {
     #cta {
         position: relative;
         padding: calc(50 / 16 * 1rem) 0;
@@ -1128,7 +1132,7 @@ a {text-decoration: none;}
 }
 
 /* Small Desktop */
-@media only screen and (min-width: 64rem) {
+@media only screen and (min-width: 64em) {
     #cta {
         padding: calc(168 / 16 * 1rem) 0;
     }
@@ -1185,7 +1189,7 @@ a {text-decoration: none;}
 }
 
 /* Dark Mode */
-@media only screen and (min-width: 0rem) {
+@media only screen and (min-width: 0em) {
     body.dark-mode {
         #cta {
             &:after {
@@ -1200,9 +1204,9 @@ a {text-decoration: none;}
 <--- -------------------------- -*/
 
 /* Mobile */
-@media only screen and (min-width: 0rem) {
+@media only screen and (min-width: 0em) {
     #footer {
-        background:#000;
+        background: #000;
         padding: calc(84 / 16 * 1rem) 0 calc(20 / 16 * 1rem);
         font-size: min(4vw, 1.2em);
 
@@ -1214,13 +1218,14 @@ a {text-decoration: none;}
                 display: inline-block;
                 margin: auto;
                 margin-bottom: calc(30 / 16 * 1em);
-                height: calc(32 / 16 * 4em);
+                height: calc(32 / 16 * 1em);
                 width: auto;
                 text-align: center;
 
                 img {
                     display: block;
-                    width: 100%;
+                    height: 100%;
+                    width: auto;
                 }
             }
 
@@ -1228,6 +1233,7 @@ a {text-decoration: none;}
                 opacity: 0.9;
                 margin: auto;
                 width: 100%;
+                width: calc(307 / 14 * 1rem);
                 font-size: calc(14 / 16 * 1rem);
                 line-height: calc(27 / 14 * 1rem);
                 color: #fff;
@@ -1248,7 +1254,7 @@ a {text-decoration: none;}
                 width: 96%;
                 ul {
                     margin-top: 0;
-                    
+                    margin-bottom: 0;
                     padding: 0;
 
                     li {
@@ -1263,8 +1269,10 @@ a {text-decoration: none;}
                             line-height: calc(21 / 18 * 1em);
                             color: #fff;
                             transition: color 0.3s;
+                            transition:all ease .5s;
                             &:hover {
-                                color: var(--primary);
+                                text-decoration: underline;
+                                transition:all ease .5s;
                             }
                         }
                     }
@@ -1293,7 +1301,7 @@ a {text-decoration: none;}
                     &:nth-of-type(3) {
                         margin-top: calc(50 / 16 * 1rem);
                         li {
-                            
+                            display: flex;
                             justify-content: flex-start;
                             align-items: center;
                             margin-bottom: calc(16 / 16 * 1rem);
@@ -1321,15 +1329,12 @@ a {text-decoration: none;}
 
         .credit {
             margin: auto;
-            max-width: 82.5rem;
             margin-top: calc(100 / 16 * 1rem);
             width: 96%;
-            text-align: center;
-            font-size: calc(16 / 16 * .8rem);
-            font-weight: 100;
+            font-size: calc(16 / 16 * 1rem);
             line-height: calc(36 / 16 * 1rem);
             color: #fff;
-            
+            text-align: center;
 
             a {
                 text-decoration: none;
@@ -1350,7 +1355,7 @@ a {text-decoration: none;}
 }
 
 /* Small Desktop */
-@media only screen and (min-width: 64rem) {
+@media only screen and (min-width: 64em) {
     #footer {
         font-size: min(1.2vw, 1em);
         .container {
@@ -1361,7 +1366,7 @@ a {text-decoration: none;}
             margin: auto;
             max-width: calc(1320 / 16 * 1rem);
             width: 96%;
-            padding: 0px 0;
+            padding: 0;
         }
 
         .left-section {
@@ -1371,10 +1376,9 @@ a {text-decoration: none;}
 
             .logo {
                 margin-left: 0;
-                height: calc(40 / 16 * 2.5rem);
+                height: calc(40 / 16 * 1rem);
                 text-align: left;
             }
-            
 
             p {
                 margin-left: 0;
@@ -1385,14 +1389,15 @@ a {text-decoration: none;}
         .right-section {
             margin: 0;
             max-width: none;
-            width: calc(609 / 16 * 1.2rem);
-
+            width: calc(209 / 16 * 1rem);
             .lists {
                 margin: 0;
                 max-width: calc(769 / 16 * 1rem);
+                max-width: initial;
                 width: 96%;
 
                 ul {
+
                     li {
                         a {
                             position: relative;
@@ -1438,18 +1443,10 @@ a {text-decoration: none;}
             }
         }
     }
-
 }
 
-
-.bigArrow {width:50px; height: 50px; padding: 0px; margin:-100px  auto 100px; display: block;}
-.bigArrow:hover {transform: scale(1.5);border:0px;background-color: white;}
-.bigArrow:hover:before{opacity: 0;}
-.bigArrow img {width: 20px; vertical-align: middle;filter: grayscale(1) brightness(1000%);transition: all ease .5s}
-.bigArrow:hover img {transform: scale(1.5);filter: brightness(0%);transition: all ease .2s}
-
 /* Dark Mode */
-@media only screen and (min-width: 0rem) {
+@media only screen and (min-width: 0em) {
     body.dark-mode {
         #footer {
             background: #061623;
