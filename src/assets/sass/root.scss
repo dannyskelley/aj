@@ -1218,8 +1218,9 @@
                 display: inline-block;
                 margin: auto;
                 margin-bottom: calc(30 / 16 * 1em);
-                height: calc(32 / 16 * 1em);
+                height: calc(32 / 16 * 4em);
                 width: auto;
+                max-width: 100%;
                 text-align: center;
 
                 img {
@@ -1376,7 +1377,7 @@
 
             .logo {
                 margin-left: 0;
-                height: calc(40 / 16 * 1rem);
+                height: calc(40 / 16 * 4rem);
                 text-align: left;
             }
 
