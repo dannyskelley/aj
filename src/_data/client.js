@@ -1,8 +1,8 @@
 module.exports = {
-    "name": "Harry's Painting and Residential Worx",
-    "email": "info@tomatotattoo.com",
-    "phoneForTel": "(313)-529-4209",
-    "phoneFormatted": "(313)-529-4209",
+    "name": "A & J Sealcoating",
+    "email": "ajsealcoating@gmail.com",
+    "phoneForTel": "(313)-268-0951",
+    "phoneFormatted": "(313)-268-0951",
     "address": {
         "lineOne": "",
         "lineTwo": "",
